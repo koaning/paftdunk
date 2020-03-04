@@ -1,10 +1,14 @@
-<a href="/docs/logo.png"><img src="docs/logo.png" width="35%" height="35%" align="right" /></a>
+<a href="/docs/logo.png"><img src="docs/logo.png" width="30%" height="30%" align="right" /></a>
 
 # PaftDunk
 
 > It's recommending all night to get lucky. - Paft Dunk
 
 The **PaftDunk** library tries to achieve recommendations by ... simply counting. It is meant as a dead simple, minimal (and calm) starting point.
+
+## IMPORTANT 
+
+This readme is but an API spec. This is not implemented yet.
 
 ## QuickStart 
 
@@ -54,6 +58,30 @@ recommend anything (perhaps due to a cold start) it will fall back to the
 that will allow us to tell the algorithm to weight certain user/product 
 combinations as more or less valueable. For example, the margin of a product
 can be passed here. 
+
+#### scikit-learn 
+
+Our api is scikit-learn compatible, which is useful if you'd like to do a 
+gridsearch. We have a `score` implemented on the `Recommender` object and
+depending on the `k`, `metric`, `fit` parameter we can optimise on the 
+metric that you're interested in.
+
+```python
+model = Recommender(k=5, method="overlap", 
+                    fallback="popular", fit="useritem")
+model.fit(X=df, y=df['margin'])
+```
+
+## State and Service
+
+We package a `FastApi` service in this package so that you can start
+a small service from the command line. Or from a docker container.
+You can also train from the command line.
+
+```bash
+paftdunk train --csv <path1> --k 5 --output-folder <path2>
+paftdunk serve --input-folder <path2>
+```
 
 ## Development 
 
