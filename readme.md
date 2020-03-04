@@ -1,4 +1,4 @@
-<a href="/docs/logo.png"><img src="images/logo.png" width="35%" height="35%" align="right" /></a>
+<a href="/docs/logo.png"><img src="docs/logo.png" width="35%" height="35%" align="right" /></a>
 
 # PaftDunk
 
