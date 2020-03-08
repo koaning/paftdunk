@@ -5,6 +5,8 @@ from paftdunk.etl import (
     calc_itemitem,
     add_rating,
 )
+import pathlib
+import pandas as pd
 
 
 class Recommender:
@@ -29,3 +31,18 @@ class Recommender:
             .sort_values("rating", ascending=False)
             .head(n)
         )
+
+    def to_disk(self, name):
+        base_path = pathlib.Path(name)
+        if not base_path.exists():
+            base_path.mkdir()
+        self.user_popularity_.to_csv(base_path / "user_popularity.csv", index=False)
+        self.item_popularity_.to_csv(base_path / "item_popularity.csv", index=False)
+        self.itemitem_.to_csv(base_path / "itemitem.csv", index=False)
+
+    @classmethod
+    def from_disk(cls, name):
+        base_path = pathlib.Path(name)
+        rec = Recommender()
+        rec.itemitem_ = pd.read_csv(base_path / "itemitem.csv")
+        return rec
