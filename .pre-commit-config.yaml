@@ -13,3 +13,8 @@ repos:
     rev: 8f9b4931b9a28896fb43edccb23016a7540f5b82
     hooks:
     -   id: flake8
+- repo: https://github.com/psf/black
+  rev: stable
+  hooks:
+  - id: black
+    language_version: python3.6
