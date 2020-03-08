@@ -7,6 +7,7 @@ from paftdunk.common import window
 def start_pipeline(dataf):
     return dataf.copy()
 
+
 def remove_outliers(dataf, min_items_per_user=0, min_users_per_item=0):
     user_df = calc_user_activity(dataf)
     item_df = calc_item_activity(dataf)
@@ -16,6 +17,7 @@ def remove_outliers(dataf, min_items_per_user=0, min_users_per_item=0):
              .loc[lambda d: ~d['user_id'].isin(bad_users)]
              .loc[lambda d: ~d['item_id'].isin(bad_items)])
 
+
 def calc_overlap_df(dataf):
     agg_df = dataf.groupby('user_id').apply(lambda d: list(d['item_id']))
     chain_of_window = chain(*(list(window(i[1])) for i in agg_df.items()))
@@ -24,6 +26,7 @@ def calc_overlap_df(dataf):
               .groupby(['item_from', 'item_id'])
               .agg(n_overlap=('n', 'count'))
               .reset_index())
+
 
 def calc_itemitem(dataf):
     item_df = calc_item_activity(dataf)
@@ -35,14 +38,16 @@ def calc_itemitem(dataf):
              .assign(p=lambda d: d['n_overlap']/d['n_uniq_user'])
              .sort_values(['item_from', 'p'], ascending=[True, False]))
 
+
 def calc_user_activity(dataf):
     return (dataf
-               .groupby('user_id')
-               .agg(n_uniq_item=('item_id', 'nunique'))
-               .reset_index())
+             .groupby('user_id')
+             .agg(n_uniq_item=('item_id', 'nunique'))
+             .reset_index())
+
 
 def calc_item_activity(dataf):
     return (dataf
-               .groupby('item_id')
-               .agg(n_uniq_user=('user_id', 'nunique'))
-               .reset_index())
+             .groupby('item_id')
+             .agg(n_uniq_user=('user_id', 'nunique'))
+             .reset_index())

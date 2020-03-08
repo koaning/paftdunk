@@ -67,11 +67,23 @@ depending on the `k`, `metric`, `fit` parameter we can optimise on the
 metric that you're interested in.
 
 ```python
-model = Recommender(k=5, method="overlap", 
-                    fallback="popular", fit="useritem")
+model = Recommender(k=5, method="overlap", fallback="popular", fit="useritem")
 model.fit(X=df, y=df['margin'])
 ```
 
+#### settings 
+
+The recommender has a couple of settings. 
+
+```python
+Recommender(k=5, method="overlap", 
+            fallback="popular", fit="useritem",
+            min_overlap = 5, min_item_occ = 5, 
+            min_user_occ = 5, smoothing = 10, 
+            alpha=1, beta=1)
+```
+
+- alpha/beta are inputs used by the `method`. 
 ## State and Service
 
 We package a `FastApi` service in this package so that you can start
