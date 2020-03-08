@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from paftdunk.cli import main
+from paftdunk.__main__ import main
 
 
 def test_hello_world():
