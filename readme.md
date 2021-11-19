@@ -23,9 +23,9 @@ This will generate files in the `rec_out` folder.
 ```
 metadata.json
 item_to_item.parquet
-item_to_user.parqyet
-user_to_item.parqyet
-user_to_user.parqyet
+item_to_user.parquet
+user_to_item.parquet
+user_to_user.parquet
 ```
 
 The idea is that these files are pre-calculated recommendations. These can either be moves into a cache like redits or be used to directly serve recommendations.
