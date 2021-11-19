@@ -2,7 +2,7 @@
 
 # PaftDunk
 
-> It's recommending all night to get lucky. - Paft Dunk
+> Recommending all night to get lucky. - Paft Dunk
 
 The **PaftDunk** library tries to achieve recommendations by ... simply counting. It is meant as a dead simple, minimal (and calm) starting point.
 
