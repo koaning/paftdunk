@@ -1,4 +1,4 @@
-<a href="/docs/logo.png"><img src="docs/logo.png" width="30%" height="30%" align="right" /></a>
+<img src="docs/paftdunk.png" width=150 height=150 align="right" />
 
 # PaftDunk
 
