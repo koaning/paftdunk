@@ -4,7 +4,7 @@
 
 > Recommendin' all night to get lucky. Smaller, Lighter, Simpler, Calmer. 
 
-The **PaftDunk** library tries to achieve recommendations by ... simply counting. It is meant as a dead simple, minimal (and calm) starting point.
+The **PaftDunk** library tries to achieve recommendations by ... simply counting. It is meant as a dead simple, minimal (and calm) starting point. It's not meant to be state of the art or anything. But should make help you with some simple benchmarks and analyses. 
 
 ## IMPORTANT 
 
