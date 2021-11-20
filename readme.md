@@ -1,4 +1,4 @@
-<img src="docs/paftdunk.png" width=150 height=150 align="right" />
+<img src="docs/paftdunk.png" width=175 height=175 align="right" />
 
 # PaftDunk
 
